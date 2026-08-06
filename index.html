@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+<html lang="en" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fresh Efficiency - Ahorra Comida, Ahorra Dinero</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#c1c0c6",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#e3e3dc",
+                        "on-tertiary-container": "#4e4e53",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#c7c6cb",
+                        "background": "#fafaf3",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#503b7c",
+                        "on-secondary-fixed": "#230a4e",
+                        "primary-fixed": "#c5f33a",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#d2bbff",
+                        "primary": "#4f6600",
+                        "surface-dim": "#dadad4",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f4f4ed",
+                        "on-secondary-container": "#564183",
+                        "surface-container": "#eeeee7",
+                        "on-surface-variant": "#444935",
+                        "surface-tint": "#4f6600",
+                        "tertiary": "#5e5e63",
+                        "outline": "#747962",
+                        "on-tertiary-fixed": "#1b1b20",
+                        "on-primary-container": "#425500",
+                        "primary-container": "#a4d007",
+                        "on-surface": "#1a1c18",
+                        "surface-variant": "#e3e3dc",
+                        "on-tertiary-fixed-variant": "#46464b",
+                        "on-primary-fixed": "#161f00",
+                        "surface-container-high": "#e8e9e2",
+                        "on-background": "#1a1c18",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "secondary": "#685296",
+                        "on-primary-fixed-variant": "#3b4d00",
+                        "surface-bright": "#fafaf3",
+                        "secondary-container": "#cbb2fd",
+                        "surface": "#fafaf3",
+                        "inverse-primary": "#aad615",
+                        "inverse-surface": "#2f312d",
+                        "outline-variant": "#c4c9af",
+                        "inverse-on-surface": "#f1f1ea",
+                        "tertiary-fixed": "#e3e2e7",
+                        "primary-fixed-dim": "#aad615",
+                        "secondary-fixed": "#eaddff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-margin": "1rem",
+                        "card-padding": "1.25rem",
+                        "stack-gap": "0.75rem",
+                        "inline-gap": "0.5rem",
+                        "section-margin": "2rem"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Manrope"],
+                        "body-sm": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "headline-xl": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "label-md": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+                        "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "headline-xl": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-lg": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #fafaf3; /* background */
+            color: #1a1c18; /* on-background */
+        }
+        /* Custom Lavender Light Color for sections */
+        .bg-lavender-light {
+            background-color: #F4F2F8;
+        }
+        
+        @media (prefers-reduced-motion: no-preference) {
+            @keyframes float {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-15px); }
+            }
+            
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            .animate-float {
+                animation: float 6s ease-in-out infinite;
+            }
+            
+            .fade-in-up {
+                opacity: 0;
+            }
+            
+            .fade-in-up.visible {
+                animation: fadeInUp 0.8s ease-out forwards;
+            }
+            
+            .hover-alive {
+                transition: transform 0.3s ease, filter 0.3s ease;
+            }
+            
+            .hover-alive:hover {
+                transform: scale(1.05);
+                filter: brightness(1.1);
+            }
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            .fade-in-up {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 bg-background border-b border-outline-variant w-full">
+<div class="flex justify-between items-center px-container-margin py-4 max-w-7xl mx-auto w-full">
+<div class="font-headline-lg text-headline-lg font-black text-primary">Autor: ISAI-AVC-DEVELOPER/cocinaahorro:</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant hover:text-primary font-label-md text-label-md transition-colors hover:bg-surface-container-low px-3 py-2 rounded-lg" href="#beneficios">Beneficios</a>
+<a class="text-on-surface-variant hover:text-primary font-label-md text-label-md transition-colors hover:bg-surface-container-low px-3 py-2 rounded-lg" href="#como-funciona">Cómo Funciona</a>
+<a class="text-on-surface-variant hover:text-primary font-label-md text-label-md transition-colors hover:bg-surface-container-low px-3 py-2 rounded-lg" href="#testimonios">Testimonios</a>
+</nav>
+<a class="bg-primary-container text-on-surface font-label-md text-label-md font-bold px-6 py-2 rounded-full hover:bg-opacity-90 transition-transform scale-95 active:scale-90 inline-block text-center" href="https://github.com/ISAI-AVC-DEVELOPER/cocinaahorro">Descargar App</a>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="bg-primary-container relative overflow-hidden fade-in-up">
+<div class="max-w-7xl mx-auto px-container-margin py-20 lg:py-32 flex flex-col lg:flex-row items-center gap-12">
+<div class="lg:w-1/2 z-10 space-y-6 text-center lg:text-left">
+<h1 class="font-headline-xl text-headline-xl text-on-surface">
+                    Ahorra Comida, Ahorra Dinero.<br/>
+<span class="text-primary-fixed">Planifica como un experto.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg mx-auto lg:mx-0">
+                    Controla tu despensa, genera recetas con lo que ya tienes y crea listas de compras automáticas para no desperdiciar ni un centavo.
+                </p>
+<div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+<a class="bg-on-surface text-surface font-label-md text-label-md font-bold px-8 py-4 rounded-full shadow-lg hover:-translate-y-1 transition-transform inline-block text-center" href="https://github.com/ISAI-AVC-DEVELOPER/cocinaahorro">Descargar Gratis</a>
+<button class="border-2 border-on-surface text-on-surface font-label-md text-label-md font-bold px-8 py-4 rounded-full hover:bg-on-surface hover:text-surface transition-colors">
+                        Ver Demo
+                    </button>
+</div>
+</div>
+<div class="lg:w-1/2 z-10 relative mt-12 lg:mt-0 animate-float">
+<!-- Decorative Blob -->
+<div class="absolute inset-0 bg-primary-fixed opacity-30 rounded-full blur-3xl scale-150 -z-10"></div>
+<img class="w-full max-w-md mx-auto drop-shadow-2xl rounded-[2.5rem] rotate-2 hover:rotate-0 transition-transform duration-500 border-4 border-surface-container-lowest" data-alt="A modern smartphone displaying a sleek meal planning app UI. The phone is surrounded by fresh, vibrant organic food ingredients like spinach, cherry tomatoes, and avocados on a clean, bright white kitchen marble counter. Professional lighting, high-end commercial photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeUlOpvzf_pQPmJ83FVAdqtPMj9qi2xji2J6gMMOMEkhKYqSbEF8IoEXGuMnsdwU1VD9odEehF6otFdFeARm2Q5wCAWlpZ57WopXFtPXk9HF97AKG3q4EDlHmn2xuySoZCU16rUUi7KA2QVePKtmYw-n50vz0iQLwTiaI959kV6Jd3o-8eQRfvM00qq_URuvQOVzMGB_yI9xjMIhRizOl2iuY1Cni8YxdhXRotjbISlWLka_EPQVm7458MYOl4QhaokdE"/>
+</div>
+</div>
+<!-- Bottom Curve -->
+<div class="absolute bottom-0 w-full overflow-hidden leading-none z-0">
+<svg class="relative block w-full h-[50px]" data-name="Layer 1" preserveaspectratio="none" viewbox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg">
+<path class="fill-lavender-light" d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"></path>
+</svg>
+</div>
+</section>
+<!-- Beneficios Section (Bento Grid Style) -->
+<section class="bg-lavender-light py-24 fade-in-up" id="beneficios">
+<div class="max-w-7xl mx-auto px-container-margin">
+<div class="text-center mb-16 space-y-4">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Por qué elegir Fresh Efficiency</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">Soluciones prácticas para el día a día que te ayudan a optimizar tu tiempo y presupuesto.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest rounded-3xl p-6 shadow-sm border border-outline-variant flex flex-col items-start hover:shadow-md transition-shadow">
+<div class="w-12 h-12 rounded-2xl bg-secondary-container flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-on-secondary-container filled text-2xl">kitchen</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Despensa Inteligente</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Lleva el control de lo que tienes. Recibe alertas de stock bajo antes de que los alimentos se echen a perder.</p>
+<img class="w-full h-48 object-cover rounded-xl mt-auto hover-alive" data-alt="A clean, minimalist UI card showing a digital pantry inventory list with items like rice, tuna, and broccoli. The design uses soft lavender backgrounds and high-contrast text, set against a bright, airy background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfAWbRcAUrZOrYsdANdVaTtSf0oQ64TyEkHPvLyZbwxBO6QMdAWr773JLFAyFyNqQj1si0DF1I_bJ1B5N-bu3_t-Pq0AHZKBQ1Hj0vn7MKvW7hsV3ivVMzzRntA0KNDP9q7sB0d9uKkgJ_8hLFq-A4HAzUUq3cc5suJoj-XG3UYZe4pIjLAsCQ8nJDUFePq-Pt8A1dKWdm0eaHs_dulqMbD-WwbOe5qv4krswMo2DsVt-QUhF-UWLfc6-6gqstCSXviNQ"/>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest rounded-3xl p-6 shadow-sm border border-outline-variant flex flex-col items-start hover:shadow-md transition-shadow md:translate-y-8">
+<div class="w-12 h-12 rounded-2xl bg-primary-container flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-on-primary-container filled text-2xl">menu_book</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Recetas con lo que tienes</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Dile adiós a la pregunta '¿qué ceno hoy?'. Sugerencias de recetas basadas exactamente en los ingredientes de tu despensa.</p>
+<img class="w-full h-48 object-cover rounded-xl mt-auto object-top hover-alive" data-alt="A mobile app interface displaying a list of healthy recipes. The UI features soft rounded corners, clear typography, and appetizing food photography for salads and smoothies. The overall vibe is fresh and organized." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBie4bg3Q6F5ybyIgHi0rYEOPnuxJnJvYArDW6agBCxq50mKErkJQeBw_lVugDqT54FEGhjUMv25g1uS7CAKBCbc_C_P3M040w0eAfjHrsuGwqm9uHSkCdCNbjMCUBg9xQc0DorDg1Q9tgcdf82KjylAgH4fBvkpOJ7CELqLLWab1wrUaJTYKTUAU4M_0aQgIWs0yH_lFQJA48qv0WCf8DAvQ3cTfbIvorIYuok2lfAQ0ggARBdFS_8iXhG-yc5OB8mU3Y"/>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest rounded-3xl p-6 shadow-sm border border-outline-variant flex flex-col items-start hover:shadow-md transition-shadow">
+<div class="w-12 h-12 rounded-2xl bg-tertiary-container flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-on-tertiary-container filled text-2xl">shopping_cart</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Lista de Compras Auto</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Genera tu lista de compras automáticamente según las recetas que planees para la semana. Solo compra lo que realmente necesitas.</p>
+<img class="w-full h-48 object-cover rounded-xl mt-auto object-top hover-alive" data-alt="A sleek digital shopping list interface on a mobile device, showing checkboxes for ingredients like eggs, chicken, and onions. The estimated budget is clearly visible at the top. The style is modern, with soft lavender accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAernKbF0jOU-urOyKsAibwr7bcZIMxx05UsHcK2OAZ-Uc208KQdiWHqlqrGtKXJxFng-7kRf58OkKAFWENdRrKG-PT_-ilpm64YcjcFoVncHkwP50M9vGYBGCdCxpNxNgChbsc46N-4zNu-gw3VY5r4kWrjoOc3IWMcuME3T-TBBbetB7HCw7fG50rkz6LXeCIP2HpJkAT66KalVUWh_x3X9Mb1V1QIplkG4ExWr-1gk4EJg2KnSLTfgRXUydlfyEE9pc"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Cómo Funciona (Asymmetric Layout) -->
+<section class="bg-background py-24 relative overflow-hidden fade-in-up" id="como-funciona">
+<div class="max-w-7xl mx-auto px-container-margin">
+<div class="flex flex-col lg:flex-row items-center gap-16">
+<div class="lg:w-1/2 space-y-12">
+<div>
+<h2 class="font-headline-xl text-headline-xl text-on-surface mb-4">El flujo de la eficiencia</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">En solo 3 pasos transformarás tu relación con la cocina y el supermercado.</p>
+</div>
+<div class="space-y-8">
+<div class="flex gap-6 items-start">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center font-headline-md text-headline-md text-primary font-black border-2 border-primary">1</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface">Escanea o Agrega</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Registra rápidamente los alimentos que tienes en casa. Mantén tu despensa digital actualizada en segundos.</p>
+</div>
+</div>
+<div class="flex gap-6 items-start">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center font-headline-md text-headline-md text-primary font-black border-2 border-primary">2</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface">Planifica la Semana</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Elige recetas basadas en tu inventario. Crea un menú semanal equilibrado sin salirte del presupuesto.</p>
+</div>
+</div>
+<div class="flex gap-6 items-start">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center font-headline-md text-headline-md text-primary font-black border-2 border-primary">3</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface">Disfruta y Ahorra</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Cocina sin estrés sabiendo que aprovechas cada ingrediente y ahorras dinero en cada compra.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:w-1/2 relative w-full h-[600px] bg-surface-container-low rounded-[3rem] p-8 flex items-center justify-center animate-float">
+<!-- Placeholder for interactive element or animation if needed, using a composite image for now -->
+<img class="absolute inset-0 w-full h-full object-cover rounded-[3rem] opacity-80 mix-blend-multiply hover-alive" data-alt="A stylized, top-down isometric view of a modern kitchen counter. On the counter, a smartphone displays the Fresh Efficiency app alongside neatly prepped meal containers (bento boxes) filled with colorful, healthy food. Bright, even lighting, conveying organization and health." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZEAvtmxGmUoV9lFAUxuhPr57YR8TDo2Bf44P0k7ZBQm18mePOoYMQOItR8BKt_F2TOuCvcxDsIjExbAok8ehbny6wvP1Xpdic5vWnkC7DCIqQkmuXLSGwKXevwUAEjfSoUtfVDVrHCIvlZR1pA-uKpz4mj91WIM-bkeJ4kywYX1jq2wCNFA8xyO3ZUMpUuwIGR4AAeS8C9H3IEIcyoO-6o9rvlVg7l-k8PLnZHtwgTV-SpsCKP1iUGQ"/>
+<div class="absolute inset-0 bg-gradient-to-tr from-lavender-light/50 to-primary-container/20 rounded-[3rem] pointer-events-none"></div>
+<!-- Glassmorphism Card Overlay -->
+<div class="relative z-10 bg-surface-container-lowest/70 backdrop-blur-md p-6 rounded-2xl shadow-xl max-w-sm w-full border border-surface-container-lowest">
+<div class="flex items-center justify-between mb-4">
+<h5 class="font-headline-md text-headline-md text-on-surface">Ahorro Mensual</h5>
+<span class="material-symbols-outlined text-primary">trending_up</span>
+</div>
+<div class="font-headline-xl text-headline-xl text-primary font-black mb-1">$120.00</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Promedio ahorrado por nuestros usuarios al reducir el desperdicio.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonios Section (Glassmorphism Cards) -->
+<section class="bg-lavender-light py-24 relative fade-in-up" id="testimonios">
+<div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNjY2NjY2MiIGZpbGwtb3BhY2l0eT0iMC40Ii8+PC9zdmc+')] opacity-50"></div>
+<div class="max-w-7xl mx-auto px-container-margin relative z-10">
+<h2 class="font-headline-lg text-headline-lg text-on-surface text-center mb-16">Lo que dicen nuestros usuarios</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="bg-surface-container-lowest/80 backdrop-blur-sm p-8 rounded-3xl shadow-sm border border-surface-container">
+<div class="flex gap-1 mb-4 text-primary">
+<span class="material-symbols-outlined filled">star</span><span class="material-symbols-outlined filled">star</span><span class="material-symbols-outlined filled">star</span><span class="material-symbols-outlined filled">star</span><span class="material-symbols-outlined filled">star</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6 italic">"Desde que uso Fresh Efficiency, mi factura del súper bajó un 20%. Ya no tiro verduras podridas a la basura."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-tertiary-container"></div>
+<div>
+<div class="font-headline-md text-headline-md text-on-surface text-base">Ana G.</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Usuaria desde 2023</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest/80 backdrop-blur-sm p-8 rounded-3xl shadow-sm border border-surface-container md:-translate-y-4">
+<div class="flex gap-1 mb-4 text-primary">
+<span class="material-symbols-outlined filled">star</span><span class="material-symbols-outlined filled">star</span><span class="material-symbols-outlined filled">star</span><span class="material-symbols-outlined filled">star</span><span class="material-symbols-outlined filled">star</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6 italic">"La sugerencia de recetas es magia pura. Le pongo lo que me queda en la refri y me saca un platillo delicioso en minutos."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary-container"></div>
+<div>
+<div class="font-headline-md text-headline-md text-on-surface text-base">Carlos R.</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Padre de familia</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest/80 backdrop-blur-sm p-8 rounded-3xl shadow-sm border border-surface-container">
+<div class="flex gap-1 mb-4 text-primary">
+<span class="material-symbols-outlined filled">star</span><span class="material-symbols-outlined filled">star</span><span class="material-symbols-outlined filled">star</span><span class="material-symbols-outlined filled">star</span><span class="material-symbols-outlined filled">star_half</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6 italic">"El diseño es súper limpio y fácil de usar. La lista de compras automática me ahorra horas cada semana."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-container"></div>
+<div>
+<div class="font-headline-md text-headline-md text-on-surface text-base">Laura M.</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Nutrióloga</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer Component -->
+<footer class="bg-surface-container w-full border-t border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center px-container-margin py-section-margin max-w-7xl mx-auto w-full gap-8">
+<div class="font-headline-md text-headline-md font-bold text-on-surface">Autor: ISAI-AVC-DEVELOPER/cocinaahorro:</div>
+<nav class="flex flex-wrap justify-center gap-6">
+<a class="text-on-surface-variant hover:text-primary font-label-md text-label-md hover:underline decoration-primary opacity-80 hover:opacity-100 transition-opacity" href="#">Privacidad</a>
+<a class="text-on-surface-variant hover:text-primary font-label-md text-label-md hover:underline decoration-primary opacity-80 hover:opacity-100 transition-opacity" href="#">Términos</a>
+</nav>
+<div class="text-on-surface-variant font-body-sm text-body-sm text-center md:text-right">
+                © 2024 Fresh Efficiency. Ahorra comida, ahorra dinero.
+            </div>
+</div>
+</footer>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            observer.observe(el);
+        });
+    });
+</script>
+</body></html>
